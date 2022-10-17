@@ -53,18 +53,16 @@ def kutia(sdk, row, col):          # checks if a 3x3 area is valid the same way
 
     return False
 
-def fullSudoku(sdk, row, col):    # combines all 3 functions!
+def fullSudoku(sdk):    # combines all 3 functions!
     
     for i in range(0, 9):
-        newRow = row + i
         for j in range (0, 9):
-            newCol = col + j
             
-            if rreshti(sdk, newRow) == False or kolona(sdk, newCol) == False or kutia(sdk, newRow - newRow % 3, newCol - newCol % 3) == False:
+            if rreshti(sdk, i) == False or kolona(sdk, j) == False or kutia(sdk, i - i % 3, j - j % 3) == False:
                 return False
     return True
 
-if fullSudoku(sudoku, 0, 0) == True:
+if fullSudoku(sudoku) == True:
     print (True)
 else:
     print (False)
